@@ -1,5 +1,5 @@
-import { ios } from "tns-core-modules/utils/utils";
-import { Frame } from "tns-core-modules/ui";
+import { iOSNativeHelper } from "@nativescript/core/utils";
+import { Frame } from "@nativescript/core";
 
 function share(thingsToShare) {
   const activityController = UIActivityViewController.alloc()
@@ -20,7 +20,7 @@ function share(thingsToShare) {
   const window = app.keyWindow || (app.windows && app.windows.count > 0 && app.windows[0]);
   const rootController = window.rootViewController;
 
-  ios.getVisibleViewController(rootController)
+  iOSNativeHelper.getVisibleViewController(rootController)
     .presentViewControllerAnimatedCompletion(activityController, true, null);
 }
 
